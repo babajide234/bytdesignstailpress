@@ -11,84 +11,99 @@
 
 <body <?php body_class( 'bg-white text-gray-900 antialiased' ); ?>>
 
-<?php do_action( 'tailpress_site_before' ); ?>
-
-<div id="page" class="min-h-screen flex flex-col">
-
-	<?php do_action( 'tailpress_header' ); ?>
-
-	<header>
-
-		<div class="mx-auto container">
-			<div class="lg:flex lg:justify-between lg:items-center border-b py-6">
-				<div class="flex justify-between items-center">
-					<div>
-						<?php if ( has_custom_logo() ) { ?>
-                            <?php the_custom_logo(); ?>
-						<?php } else { ?>
-							<a href="<?php echo get_bloginfo( 'url' ); ?>" class="font-extrabold text-lg uppercase">
-								<?php echo get_bloginfo( 'name' ); ?>
-							</a>
-
-							<p class="text-sm font-light text-gray-600">
-								<?php echo get_bloginfo( 'description' ); ?>
-							</p>
-
-						<?php } ?>
-					</div>
-
-					<div class="lg:hidden">
-						<a href="#" aria-label="Toggle navigation" id="primary-menu-toggle">
-							<svg viewBox="0 0 20 20" class="inline-block w-6 h-6" version="1.1"
-								 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-								<g stroke="none" stroke-width="1" fill="currentColor" fill-rule="evenodd">
-									<g id="icon-shape">
-										<path d="M0,3 L20,3 L20,5 L0,5 L0,3 Z M0,9 L20,9 L20,11 L0,11 L0,9 Z M0,15 L20,15 L20,17 L0,17 L0,15 Z"
-											  id="Combined-Shape"></path>
-									</g>
-								</g>
-							</svg>
+<header class="">
+    <nav class="flex items-center w-full justify-between bg-faded px-5 md:px-20 h-[50px] md:max-2xl:h-[100px] gap-[28px] border-b border-gray-300">
+        <div class=" w-[46px] h-[46px] md:max-2xl:w-[76px] md:max-2xl:h-[76px]">
+			<?php if ( has_custom_logo() ) { ?>
+                        <?php the_custom_logo(); ?>
+					<?php } else { ?>
+						<a href="<?php echo get_bloginfo( 'url' ); ?>" class="font-extrabold text-lg uppercase">
+							<?php echo get_bloginfo( 'name' ); ?>
 						</a>
-					</div>
-				</div>
-
-				<?php
+			<?php } ?>
+        </div>
+			<?php
 				wp_nav_menu(
 					array(
 						'container_id'    => 'primary-menu',
-						'container_class' => 'hidden bg-gray-100 mt-4 p-4 lg:mt-0 lg:p-0 lg:bg-transparent lg:block',
-						'menu_class'      => 'lg:flex lg:-mx-4',
+						'container_class' => 'hidden md:flex md:items-center',
+						'menu_class'      => 'flex p-2.5 gap-6',
 						'theme_location'  => 'primary',
-						'li_class'        => 'lg:mx-4',
+						'li_class'        => '',
+						'add_link_class ' => 'capitalize text-neutral-600 text-md font-normal font-dm-sans hover:cursor-pointer relative after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-0 after:bg-slate-900 after:h-px hover:after:w-full animate-borderAnimation duration-500',
 						'fallback_cb'     => false,
-					)
+						)
 				);
-				?>
-			</div>
+			?>
+        <!-- </div> -->
+        <div class="hidden md:flex md:items-center md:gap-1">
+            <div class=" w-[95px]"></div>
+            <!-- <div class=" w-[275px] h-[38px] rounded-[100px] pl-[19px] border border-neutral-300 overflow-hidden justify-start items-center inline-flex">
+                <span class="w-[22px] h-[22px] relative">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                      </svg>                      
+                </span>
+                <input type="text" class=" pl-[19px]  py-2 flex-grow inline-flex outline-none border-none placeholder:text-gray-400 placeholder:capitalize bg-faded" placeholder="search products">
+            </div> -->
+			<?php echo do_shortcode('[fibosearch]'); ?>
+
+            <div class="justify-center items-center gap-1 flex">
+                <button type="button" class="cart_btn_trigger w-9 h-9 md:max-2xl:w-10 md:max-2xl:h-10 p-2.5">
+                    <span class="sr-only">cart</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                    </svg>                  
+                </button>
+                <button class="w-9 h-9 md:max-2xl:w-10 md:max-2xl:h-10 p-2.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                    </svg>                  
+                </button>
+                <button class="auth_btn_trigger w-9 h-9 md:max-2xl:w-10 md:max-2xl:h-10 p-2.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                    </svg>                  
+                </button>
+            </div>
+        </div>
+        <div class=" flex items-center md:max-2xl:hidden ">
+            <div class=" w-[95px]"></div>
+            <div class="md:justify-center md:items-center md:gap-1 md:flex">
+                <button class="w-9 h-9 md:max-2xl:w-10 md:max-2xl:h-10 p-2.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                      </svg>                                                            
+                </button>
+                <button class="w-9 h-9 md:max-2xl:w-10 md:max-2xl:h-10 p-2.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
+                    </svg>                                        
+                </button>
+
+            </div>
+        </div>
+    </nav>
+	<?php if ( is_front_page() ) { ?>
+		<div class="bg-hero-img  bg-cover bg-center w-full h-[541.57px] md:max-2xl:h-[1024px] relative bg-black/20 bg-blend-overlay ">
+				<div class="right-20 top-[87px] absolute origin-top-left rotate-90 text-white text-opacity-20 text-[200px] font-bold font-dm-sans capitalize">BYTDESIGNS</div>
+				<div class=" w-full pt-[31px] px-[31px] md:max-2xl:pt-[31px] md:max-2xl:px-[31px] z-10 md:max-2xl:w-[583px] md:max-2xl:absolute md:max-2xl:left-[102px] md:max-2xl:top-[106px] flex-col justify-start items-start gap-[30px] flex">
+					<h1 class=" text-white text-[32px] md:max-2xl:text-[64px] font-normal font-space-mono leading-10 md:max-2xl:leading-[82px]">Every watch has a unique story</h1>
+					<p class=" text-white text-opacity-90 text-base md:max-2xl:text-2xl font-normal font-dm-sans leading-[17px] md:max-2xl:leading-[29px]">Jewelry is not just an adornment; it's a treasure that captures moments and memories</p>
+					<a href="<?php echo esc_url( get_permalink( wc_get_page_id( 'shop' ) ) ); ?>" class=" w-[158px] md:max-2xl:w-[250px] p-2.5 rounded-[10px] shadow border border-white justify-center items-center gap-2.5 inline-flex text-white text-sm md:max-2xl:text-xl font-normal font-dm-sans">
+						Go to shop
+						<span class="">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+							  </svg>                      
+						</span>
+					</a>
+				</div>
+				<h3 class=" w-[247px] md:max-2xl:w-[329px] md:max-2xl:left-[916px] bottom-5 right-5 md:max-2xl:top-[827px] absolute text-right text-white text-opacity-90 text-base md:max-2xl:text-2xl font-normal font-dm-sans leading-[17px] md:max-2xl:leading-[29px]">Jewelry is more than ornamentation; it's a timeless story of elegance and emotion</h3>
 		</div>
-	</header>
+	<?php } ?>
+</header>
 
-	<div id="content" class="site-content flex-grow">
+<main class="flex flex-col py-[41px] md:max-2xl:py-[79px] gap-[70px] overflow-x-hidden bg-faded">
 
-		<?php if ( is_front_page() ) { ?>
-			<!-- Start introduction -->
-			<div class="container mx-auto">
-				<div class="px-12 py-16 my-12 rounded-xl bg-gradient-to-r from-blue-50 from-10% via-sky-100 via-30% to-blue-200 to-90%">
-                    <div class="mx-auto max-w-screen-md">
-                        <h1 class="text-3xl lg:text-6xl tracking-tight font-extrabold text-gray-800 mb-6">Start building your next <a href="https://tailwindcss.com" class="text-secondary">Tailwind CSS</a> flavoured WordPress theme
-                            with <a href="https://tailpress.io" class="text-primary">TailPress</a>.</h1>
-                        <p class="text-gray-600 text-xl font-medium mb-10">TailPress is your go-to starting
-                            point for developing WordPress themes with Tailwind CSS and comes with basic block-editor support out
-                            of the box.</p>
-                        <a href="https://github.com/jeffreyvr/tailpress"
-                            class="w-full sm:w-auto flex-none bg-gray-900 text-white text-lg leading-6 font-semibold py-3 px-6 border border-transparent rounded-xl focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-gray-900 focus:outline-none transition-colors duration-200">View
-                            on GitHub</a>
-                    </div>
-                </div>
-			</div>
-			<!-- End introduction -->
-		<?php } ?>
 
-		<?php do_action( 'tailpress_content_start' ); ?>
-
-		<main>

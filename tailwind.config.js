@@ -19,8 +19,36 @@ module.exports = {
             },
         },
         extend: {
-            colors: tailpress.colorMapper(tailpress.theme('settings.color.palette', theme)),
-            fontSize: tailpress.fontSizeMapper(tailpress.theme('settings.typography.fontSizes', theme))
+          colors: {
+            primary: "#427478",
+            faded: "#F9FFFF",
+          },
+          backgroundImage: {
+            "hero-img": 'url("../img/headerBg.png")',
+            "mission-img": 'url("../img/layer.png")',
+            "section-img": 'url("../img/section-img.png")',
+            "footer-img": 'url("../img/footer.png")',
+            "shop-img": 'url("../img/pic1.png")',
+            "signup-img": 'url("../img/signup.jpg")'
+          },
+          fontFamily: {
+            "dm-sans": ["DM Sans", "sans-serif"],
+            "dhurjati": ["Dhurjati", "serif"],
+            "space-mono": ["Space Mono", "monospace"],
+            "space-grotesk": ["Space Grotesk", "sans-serif"],
+          },
+          transitionProperty: {
+            width: "width",
+          },
+          keyframes: {
+            borderAnimation: {
+              from: { width: "0" },
+              to: { width: "100%" },
+            },
+          },
+          animation: {
+            borderAnimation: "borderAnimation 0.5s forwards ease-in-out",
+          },
         },
         screens: {
             'xs': '480px',
@@ -30,7 +58,15 @@ module.exports = {
             'xl': tailpress.theme('settings.layout.wideSize', theme),
             '2xl': '1440px'
         }
-    },
+      },
+    // theme: {
+
+    //     // extend: {
+    //     //     colors: tailpress.colorMapper(tailpress.theme('settings.color.palette', theme)),
+    //     //     fontSize: tailpress.fontSizeMapper(tailpress.theme('settings.typography.fontSizes', theme))
+    //     // },
+        
+    // },
     plugins: [
         tailpress.tailwind
     ]

@@ -40,3 +40,17 @@ article > *:not(.entry-content),
         }
     }
 }
+
+.woocommerce div.product div.images .woocommerce-product-gallery__trigger {
+    visibility: hidden;
+}
+.woocommerce-product-gallery__trigger {
+    visibility: hidden !important;
+    display:hidden !important;
+}
+.woocommerce div.product div.images .woocommerce-product-gallery__trigger::before {
+    visibility: visible;
+}
+.woocommerce div.product div.images .woocommerce-product-gallery__trigger::after {
+    visibility: visible;
+}
