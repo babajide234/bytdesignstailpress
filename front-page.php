@@ -5,7 +5,7 @@
         <h2 class="text-zinc-950 text-base md:max-2xl:text-2xl font-normal font-dm-sans leading-loose">Categories</h2>
     </div>
     <div class=" w-full flex  overflow-scroll md:max-2xl:overflow-visible md:max-2xl:grid md:max-2xl:grid-cols-5 gap-5 md:max-2xl:gap-[18px] ">
-            <!-- <a href="" class=" w-[274px] h-[336px] md:max-2xl:w-full md:max-2xl:h-[230px] md:max-2xl:p-[18px] rounded-[10px] flex-col justify-start items-center gap-[18px] flex flex-grow-0 flex-shrink-0">
+            <a href="" class=" w-[274px] h-[336px] md:max-2xl:w-full md:max-2xl:h-[230px] md:max-2xl:p-[18px] rounded-[10px] flex-col justify-start items-center gap-[18px] flex flex-grow-0 flex-shrink-0">
                 <div class=" w-full md:max-2xl:w-[80%] bg-gray-200  h-[298px] md:max-2xl:h-[200px] justify-center items-center inline-flex">
                     <img class="w-[80%] h-[150px]" alt="" src="<?php echo esc_url( get_template_directory_uri() . '/resources/img/jewl.png' ); ?>" />
                 </div>
@@ -15,7 +15,7 @@
             </a>
             <a href="" class=" w-[274px] h-[336px] md:max-2xl:w-full md:max-2xl:h-[230px] md:max-2xl:p-[18px] rounded-[10px] flex-col justify-start items-center gap-[18px] flex flex-grow-0 flex-shrink-0">
                 <div class=" w-full md:max-2xl:w-[80%] bg-gray-200  h-[298px] md:max-2xl:h-[200px] justify-center items-center inline-flex">
-                    <img class="w-[80%] h-[150px]" alt="" src="./img/jewl.png" />
+                <img class="w-[80%] h-[150px]" alt="" src="<?php echo esc_url( get_template_directory_uri() . '/resources/img/jewl.png' ); ?>" />
                 </div>
                 <div class="flex-col justify-start items-start gap-[15px] flex">
                     <div class="text-neutral-500 text-md font-normal font-dm-sans leading-tight">Vintage watch pendant</div>
@@ -23,7 +23,7 @@
             </a>
             <a href="" class=" w-[274px] h-[336px] md:max-2xl:w-full md:max-2xl:h-[230px] md:max-2xl:p-[18px] rounded-[10px] flex-col justify-start items-center gap-[18px] flex flex-grow-0 flex-shrink-0">
                 <div class=" w-full md:max-2xl:w-[80%] bg-gray-200  h-[298px] md:max-2xl:h-[200px] justify-center items-center inline-flex">
-                    <img class="w-[80%] h-[150px]" alt="" src="./img/jewl.png" />
+                <img class="w-[80%] h-[150px]" alt="" src="<?php echo esc_url( get_template_directory_uri() . '/resources/img/jewl.png' ); ?>" />
                 </div>
                 <div class="flex-col justify-start items-start gap-[15px] flex">
                     <div class="text-neutral-500 text-md font-normal font-dm-sans leading-tight">Vintage watch pendant</div>
@@ -31,7 +31,7 @@
             </a>
             <a href="" class=" w-[274px] h-[336px] md:max-2xl:w-full md:max-2xl:h-[230px] md:max-2xl:p-[18px] rounded-[10px] flex-col justify-start items-center gap-[18px] flex flex-grow-0 flex-shrink-0">
                 <div class=" w-full md:max-2xl:w-[80%] bg-gray-200  h-[298px] md:max-2xl:h-[200px] justify-center items-center inline-flex">
-                    <img class="w-[80%] h-[150px]" alt="" src="./img/jewl.png" />
+                <img class="w-[80%] h-[150px]" alt="" src="<?php echo esc_url( get_template_directory_uri() . '/resources/img/jewl.png' ); ?>" />
                 </div>
                 <div class="flex-col justify-start items-start gap-[15px] flex">
                     <div class="text-neutral-500 text-md font-normal font-dm-sans leading-tight">Vintage watch pendant</div>
@@ -39,15 +39,14 @@
             </a>
             <a href="" class=" w-[274px] h-[336px] md:max-2xl:w-full md:max-2xl:h-[230px] md:max-2xl:p-[18px] rounded-[10px] flex-col justify-start items-center gap-[18px] flex flex-grow-0 flex-shrink-0">
                 <div class=" w-full md:max-2xl:w-[80%] bg-gray-200  h-[298px] md:max-2xl:h-[200px] justify-center items-center inline-flex">
-                    <img class="w-[80%] h-[150px]" alt="" src="./img/jewl.png" />
+                <img class="w-[80%] h-[150px]" alt="" src="<?php echo esc_url( get_template_directory_uri() . '/resources/img/jewl.png' ); ?>" />
                 </div>
                 <div class="flex-col justify-start items-start gap-[15px] flex">
                     <div class="text-neutral-500 text-md font-normal font-dm-sans leading-tight">Vintage watch pendant</div>
                 </div>
-            </a> -->
+            </a>
             <?php 
-                echo do_shortcode('[product_categories limit="5" parent="0" columns="5" hide_empty="0"]'); 
-                // var_dump($categories);
+                //echo do_shortcode('[product_categories limit="5" parent="0" columns="5" hide_empty="0"]'); 
             ?>
     </div> 
 </div> 
@@ -147,9 +146,11 @@
     <div class="w-full justify-between items-center inline-flex  ">
         <h2 class="text-zinc-950 text-base md:max-2xl:text-2xl font-normal font-dm-sans leading-loose">Best selling</h2>  
     </div>
-    <div class=" w-full  flex gap-6 overflow-scroll md:max-2xl:overflow-visible relative">
+    <!-- <div class=" w-full  flex gap-6 overflow-scroll md:max-2xl:overflow-visible relative">
          
-    </div>
+    </div> -->
+    <?php echo do_shortcode("[products limit='8' orderby='id' order='DESC'   ]"); ?>
+
 </div>
 
 <div class="hidden fixed bg-black/20 w-full h-screen top-0 left-0 flex justify-end">

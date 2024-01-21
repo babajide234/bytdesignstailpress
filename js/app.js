@@ -19,16 +19,6 @@ jQuery(document).ready(function () {
     e.stopPropagation();
     openModal('cartmodal');
   });
-  jQuery(window).click(function () {
-    console.log("window clicked");
-    // Check if the clicked element is inside any modal
-
-    // Check if the clicked element is inside any modal or its specific child elements
-    if (jQuery(e.target).closest('.modal, .exclude-click').length) {
-      // Clicked outside any modal or its specific child elements, close all modals
-      closeModals();
-    }
-  });
   $('.add-to-wishlist-btn').on('click', function () {
     var productId = $(this).data('product-id');
     console.log(productId);
@@ -56,12 +46,9 @@ jQuery(document).ready(function () {
 });
 function openModal(id) {
   // Close all modals before opening the selected one
-  closeModals();
+  // closeModals();
   // Show your modal code here
   jQuery('#' + id).toggleClass('hidden');
-  // You can use a library like Bootstrap or create your own modal implementation
-  // Replace this with your actual modal logic
-  // alert('Product added to cart!');
 }
 
 // Close all modals
